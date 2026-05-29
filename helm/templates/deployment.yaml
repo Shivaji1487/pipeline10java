@@ -22,7 +22,8 @@ spec:
           - containerPort: 8081
         env:
           - name: DB_HOST
-            value: "mysql-service"
+            # यहाँ बदलाव किया गया है ताकि यह दूसरे Namespace के MySQL से सीधे जुड़ सके
+            value: "mysql-service.bank-production-v9.svc.cluster.local"
           - name: DB_USER
             value: "root"
           - name: DB_PASSWORD
