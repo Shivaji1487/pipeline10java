@@ -23,7 +23,7 @@ spec:
         env:
           - name: SPRING_DATASOURCE_URL
             # यहाँ बदलाव किया गया है ताकि यह दूसरे Namespace के MySQL से सीधे जुड़ सके
-            value: "mysql-service.bank-production-v10.svc.cluster.local"
+            value: "jdbc:mysql://mysql-service.bank-production-v10.svc.cluster.local:3306/abc_bank"
           - name: DB_USER
             value: "root"
           - name: DB_PASSWORD
