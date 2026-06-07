@@ -22,12 +22,18 @@ spec:
           - containerPort: 8081
         env:
           - name: SPRING_DATASOURCE_URL
-            # यहाँ बदलाव किया गया है ताकि यह दूसरे Namespace के MySQL से सीधे जुड़ सके
             value: "jdbc:mysql://mysql-service.bank-production-v10.svc.cluster.local:3306/abc_bank"
           - name: DB_USER
             value: "root"
           - name: DB_PASSWORD
             value: "admin123"
+        resources:                    # <-- स्पीड बढ़ाने के लिए यह जोड़ा गया है
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
 
       # Container 2: Nginx Proxy
       - name: nginx
